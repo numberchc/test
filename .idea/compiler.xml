@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="design-patterns" />
+        <module name="leet-code" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="design-patterns" target="1.5" />
+      <module name="leet-code" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
