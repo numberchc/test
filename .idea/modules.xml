@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/design-patterns/design-patterns.iml" filepath="$PROJECT_DIR$/design-patterns/design-patterns.iml" />
       <module fileurl="file://$PROJECT_DIR$/leet-code/leet-code.iml" filepath="$PROJECT_DIR$/leet-code/leet-code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatisgenerator/mybatisgenerator.iml" filepath="$PROJECT_DIR$/mybatisgenerator/mybatisgenerator.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/study.iml" filepath="$PROJECT_DIR$/.idea/study.iml" />
       <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
     </modules>

@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="mybatisgenerator" />
         <module name="test" />
         <module name="design-patterns" />
         <module name="leet-code" />
@@ -15,6 +16,8 @@
     <bytecodeTargetLevel>
       <module name="design-patterns" target="1.5" />
       <module name="leet-code" target="8" />
+      <module name="mybatisgenerator" target="1.5" />
+      <module name="t1" target="8" />
       <module name="test" target="8" />
     </bytecodeTargetLevel>
   </component>

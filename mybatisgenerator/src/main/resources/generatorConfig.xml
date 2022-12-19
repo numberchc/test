@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- ojdbc6.jar已经直接放到项目中,无需指定了,同时mysql驱动包也一样,这里同样无需指定 -->
+    <!-- <classPathEntry location="ojdbc6.jar" /> -->
+    <!--&lt;!&ndash;导入属性配置&ndash;&gt;-->
+    <!--<properties resource="datasource.properties"></properties>-->
+
+    <context id="default" targetRuntime="MyBatis3">
+        <!-- 指定生成的java文件的编码,没有直接生成到项目时中文可能会乱码 -->
+        <!--<property name="javaFileEncoding" value="UTF-8"/>-->
+        <!-- 这里的type里写的是你的实现类的类全路径 -->
+        <commentGenerator type="com.chc.MyCommentGenerator"></commentGenerator>
+
+        <!-- mysql配置 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://11.91.139.113:3306/dlink_dev"
+                        userId="root"
+                        password="rootrootroot">
+        </jdbcConnection>
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
+        <!--connectionURL="jdbc:mysql://192.168.7.9:3310/bw_cloud_report" userId="root"-->
+        <!--password="123456">-->
+        <!--</jdbcConnection>-->
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
+        <!--connectionURL="jdbc:mysql://mysql.test.baiwang-inner.com:3306/rehearsal" userId="rehearsal"-->
+        <!--password="rehearsal">-->
+        <!--&lt;!&ndash;针对mysql数据库&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="useInformationSchema" value="true"></property>&ndash;&gt;-->
+        <!--</jdbcConnection>-->
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- dto class -->
+        <javaModelGenerator targetPackage="com.chc.model"
+                            targetProject="mybatisgenerator/src">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- mybatis xml file -->
+        <sqlMapGenerator targetPackage="com.chc.dao"
+                         targetProject="mybatisgenerator/src">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- mapper class -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.chc.mappers" targetProject="mybatisgenerator/src">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table schema="" tableName="t_erp_audit" domainObjectName="ErpAudit"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+
+    </context>
+</generatorConfiguration>

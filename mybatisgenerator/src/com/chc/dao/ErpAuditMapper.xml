@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chc.mappers.ErpAuditMapper" >
+  <resultMap id="BaseResultMap" type="com.chc.model.ErpAudit" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="erp" property="erp" jdbcType="VARCHAR" />
+    <result column="erp_name" property="erpName" jdbcType="VARCHAR" />
+    <result column="event_date" property="eventDate" jdbcType="BIGINT" />
+    <result column="matter_pass" property="matterPass" jdbcType="BIGINT" />
+    <result column="matter_reject" property="matterReject" jdbcType="BIGINT" />
+    <result column="matter_reject_two" property="matterRejectTwo" jdbcType="BIGINT" />
+    <result column="publish_audit" property="publishAudit" jdbcType="BIGINT" />
+    <result column="monitor_audit" property="monitorAudit" jdbcType="BIGINT" />
+    <result column="is_delete" property="isDelete" jdbcType="TINYINT" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="update_user" property="updateUser" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="ts" property="ts" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, erp, erp_name, event_date, matter_pass, matter_reject, matter_reject_two, publish_audit, 
+    monitor_audit, is_delete, create_user, update_user, create_time, update_time, ts
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_erp_audit
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_erp_audit
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.chc.model.ErpAudit" >
+    insert into t_erp_audit (id, erp, erp_name, 
+      event_date, matter_pass, matter_reject, 
+      matter_reject_two, publish_audit, monitor_audit, 
+      is_delete, create_user, update_user, 
+      create_time, update_time, ts
+      )
+    values (#{id,jdbcType=BIGINT}, #{erp,jdbcType=VARCHAR}, #{erpName,jdbcType=VARCHAR}, 
+      #{eventDate,jdbcType=BIGINT}, #{matterPass,jdbcType=BIGINT}, #{matterReject,jdbcType=BIGINT}, 
+      #{matterRejectTwo,jdbcType=BIGINT}, #{publishAudit,jdbcType=BIGINT}, #{monitorAudit,jdbcType=BIGINT}, 
+      #{isDelete,jdbcType=TINYINT}, #{createUser,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{ts,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.chc.model.ErpAudit" >
+    insert into t_erp_audit
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="erp != null" >
+        erp,
+      </if>
+      <if test="erpName != null" >
+        erp_name,
+      </if>
+      <if test="eventDate != null" >
+        event_date,
+      </if>
+      <if test="matterPass != null" >
+        matter_pass,
+      </if>
+      <if test="matterReject != null" >
+        matter_reject,
+      </if>
+      <if test="matterRejectTwo != null" >
+        matter_reject_two,
+      </if>
+      <if test="publishAudit != null" >
+        publish_audit,
+      </if>
+      <if test="monitorAudit != null" >
+        monitor_audit,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="updateUser != null" >
+        update_user,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="ts != null" >
+        ts,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="erp != null" >
+        #{erp,jdbcType=VARCHAR},
+      </if>
+      <if test="erpName != null" >
+        #{erpName,jdbcType=VARCHAR},
+      </if>
+      <if test="eventDate != null" >
+        #{eventDate,jdbcType=BIGINT},
+      </if>
+      <if test="matterPass != null" >
+        #{matterPass,jdbcType=BIGINT},
+      </if>
+      <if test="matterReject != null" >
+        #{matterReject,jdbcType=BIGINT},
+      </if>
+      <if test="matterRejectTwo != null" >
+        #{matterRejectTwo,jdbcType=BIGINT},
+      </if>
+      <if test="publishAudit != null" >
+        #{publishAudit,jdbcType=BIGINT},
+      </if>
+      <if test="monitorAudit != null" >
+        #{monitorAudit,jdbcType=BIGINT},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null" >
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ts != null" >
+        #{ts,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chc.model.ErpAudit" >
+    update t_erp_audit
+    <set >
+      <if test="erp != null" >
+        erp = #{erp,jdbcType=VARCHAR},
+      </if>
+      <if test="erpName != null" >
+        erp_name = #{erpName,jdbcType=VARCHAR},
+      </if>
+      <if test="eventDate != null" >
+        event_date = #{eventDate,jdbcType=BIGINT},
+      </if>
+      <if test="matterPass != null" >
+        matter_pass = #{matterPass,jdbcType=BIGINT},
+      </if>
+      <if test="matterReject != null" >
+        matter_reject = #{matterReject,jdbcType=BIGINT},
+      </if>
+      <if test="matterRejectTwo != null" >
+        matter_reject_two = #{matterRejectTwo,jdbcType=BIGINT},
+      </if>
+      <if test="publishAudit != null" >
+        publish_audit = #{publishAudit,jdbcType=BIGINT},
+      </if>
+      <if test="monitorAudit != null" >
+        monitor_audit = #{monitorAudit,jdbcType=BIGINT},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null" >
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ts != null" >
+        ts = #{ts,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chc.model.ErpAudit" >
+    update t_erp_audit
+    set erp = #{erp,jdbcType=VARCHAR},
+      erp_name = #{erpName,jdbcType=VARCHAR},
+      event_date = #{eventDate,jdbcType=BIGINT},
+      matter_pass = #{matterPass,jdbcType=BIGINT},
+      matter_reject = #{matterReject,jdbcType=BIGINT},
+      matter_reject_two = #{matterRejectTwo,jdbcType=BIGINT},
+      publish_audit = #{publishAudit,jdbcType=BIGINT},
+      monitor_audit = #{monitorAudit,jdbcType=BIGINT},
+      is_delete = #{isDelete,jdbcType=TINYINT},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      ts = #{ts,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
