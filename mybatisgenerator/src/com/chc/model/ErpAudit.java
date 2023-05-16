@@ -24,6 +24,11 @@ public class ErpAudit {
     private Long eventDate;
 
     /**
+     * 素材审核总量
+     */
+    private Long matterAudit;
+
+    /**
      * 素材审核通过
      */
     private Long matterPass;
@@ -108,6 +113,14 @@ public class ErpAudit {
 
     public void setEventDate(Long eventDate) {
         this.eventDate = eventDate;
+    }
+
+    public Long getMatterAudit() {
+        return matterAudit;
+    }
+
+    public void setMatterAudit(Long matterAudit) {
+        this.matterAudit = matterAudit;
     }
 
     public Long getMatterPass() {
